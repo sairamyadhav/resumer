@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from django.contrib.auth.hashers import make_password, check_password
+from django.contrib.auth.hashers import make_password
 
 # Create your views here.
 class SignIn(APIView):
@@ -17,8 +17,8 @@ class SignIn(APIView):
                 raise Exception("Username and Email are must")
             if not password:
                 raise Exception("Password is must")
-            user, created = User(username=username, email=email)
-            if created:
+            user, created = User.objects.get_or_create(username=username, email=email)
+            if not created:
                 user = User.objects.filter(username=username)
                 if len(user) > 0:
                     raise Exception("user with username already exists")

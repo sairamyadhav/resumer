@@ -7,7 +7,7 @@ function ProtectedRoute() {
     const { user } = useContext(authContext);
 
   return (
-    user && user.isLogin ? <Outlet /> : <Navigate to="/login" />
+    user && user.isLogin == true ? <Outlet /> : <Navigate to="/login" />
   )
 }
 
