@@ -10,7 +10,7 @@ function Navigation() {
     <>
     <Link to="/">Home</Link>
     <Link to="/resume">Resume</Link>
-    { user && user.isLogin ? <Link to="/logout">Logout</Link> :
+    { user && user.isLogin ? <Link to="/login">Logout</Link> :
     <><Link to="/siginin">Sign In</Link>
     <Link to="/login">Login</Link></>}
     </>

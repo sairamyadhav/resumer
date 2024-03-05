@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import { createContext, useState } from 'react';
 import Home from './pages/Home';
+import SignIn from './pages/SignIn';
+import Login from './pages/Login';
 import AuthContextProvider from './contexts/AuthContextProvider';
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -20,9 +22,8 @@ function App() {
         <Route path="/resume" element={<ProtectedRoute />}>
           <Route path="/resume" element={<div>resume</div>} />
         </Route>
-        <Route path="/logout" element={<div>home</div>} />
-        <Route path="/siginin" element={<div>home</div>} />
-        <Route path="/login" element={<div>home</div>} />
+        <Route path="/siginin" element={<SignIn />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
       </AuthContextProvider>
     </div>

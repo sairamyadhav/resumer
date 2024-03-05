@@ -12,7 +12,7 @@ function AuthContextProvider({ children }) {
   const login = (userData) => {
     setUser(userData);
     localStorage.setItem('username', userData.username);
-    localStorage.setItem('isLogin', userData.islogin)
+    localStorage.setItem('isLogin', true)
   }
 
   const logout = () => {
@@ -24,8 +24,8 @@ function AuthContextProvider({ children }) {
   }
 
   return (
-    <authContext.Provider value={ user, login, logout }>{ children }</authContext.Provider>
+    <authContext.Provider value={ {user, login, logout} }>{ children }</authContext.Provider>
   )
 }
 
-export default AuthContextProvider
+export default AuthContextProvider;
